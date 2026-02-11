@@ -25,6 +25,7 @@ shared/
 ## Conventions
 
 - Types here must be serializable (no classes, functions, or Dates — use ISO strings)
-- Changes to shared types affect both frontend and backend — update consumers
+- Shared types serve dual purpose: API contracts (JSON responses) and template data shapes (passed to `res.render()`)
+- Changes to shared types affect both frontend templates and backend routes — update consumers
 - Keep utilities pure — no side effects, no platform-specific code
 - Run both frontend and backend tests after modifying shared code

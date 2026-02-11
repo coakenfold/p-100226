@@ -6,7 +6,8 @@
 
 ## Architecture
 
-- Monorepo with `frontend/` (React + TypeScript) and `backend/` (Node.js + TypeScript)
+- Monorepo with `frontend/` (Nunjucks templates + TypeScript progressive enhancement) and `backend/` (Node.js + TypeScript)
+- Progressively enhanced multipage application — server-rendered HTML first, JavaScript enhances
 - Shared types live in `shared/types/`
 - API follows RESTful conventions at `/api/v1/`
 
@@ -36,7 +37,7 @@
 
 Claude automatically loads the closest `CLAUDE.md` when working in subdirectories:
 
-- @frontend/CLAUDE.md — React, components, styling
+- @frontend/CLAUDE.md — Templates, views, progressive enhancement
 - @backend/CLAUDE.md — API routes, database, auth
 - @shared/CLAUDE.md — Shared types and utilities
 

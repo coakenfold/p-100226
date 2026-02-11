@@ -3,6 +3,7 @@
 ## Overview
 
 This is a Node.js monorepo with a progressively enhanced multipage application architecture:
+
 - **Backend**: Express + TypeScript + PostgreSQL
 - **Frontend**: Nunjucks templates + TypeScript progressive enhancement + Vite
 - **Shared**: Common types, constants, and utilities
@@ -19,26 +20,27 @@ This is a Node.js monorepo with a progressively enhanced multipage application a
 
 ### 1.1 Root Configuration
 
-- [ ] Create root `package.json` with workspace configuration
+- [x] Create root `package.json` with workspace configuration
   - Define workspaces: `["frontend", "backend", "shared"]`
   - Add root-level scripts for building, testing, and linting all packages
   - Install shared dev dependencies: TypeScript, ESLint, Prettier, etc.
 
-- [ ] Create root `tsconfig.json` as base configuration
+- [x] Create root `tsconfig.json` as base configuration
   - Enable strict mode
   - Configure ES modules
   - Set up path aliases for `@shared/*`, `@backend/*`, `@frontend/*`
 
-- [ ] Create `.gitignore`
+- [x] Create `.gitignore`
   - Ignore `node_modules/`, `dist/`, `.env*`, and build artifacts
   - Include `*.log`, coverage reports, and IDE-specific files
 
-- [ ] Create `.nvmrc` or `.node-version`
+- [x] Create `.nvmrc` or `.node-version`
   - Specify Node.js 24
 
 ### 1.2 Environment Configuration
 
-- [ ] Create `.env.example` with required environment variables:
+- [x] Create `.env.example` with required environment variables:
+
   ```
   NODE_ENV=development
   PORT=3000
@@ -46,7 +48,7 @@ This is a Node.js monorepo with a progressively enhanced multipage application a
   JWT_SECRET=your-secret-key
   ```
 
-- [ ] Create `backend/src/config.ts` for centralized configuration management
+- [x] Create `backend/src/config.ts` for centralized configuration management
 
 ---
 
@@ -300,6 +302,7 @@ This is a Node.js monorepo with a progressively enhanced multipage application a
 ### 5.3 Scripts Organization
 
 Add to root `package.json`:
+
 ```json
 {
   "scripts": {

@@ -1,23 +1,23 @@
 {
+  "extends": "../tsconfig.json",
   "compilerOptions": {
     "outDir": "dist",
+    "rootDir": ".",
     "declaration": true,
     "declarationDir": "dist",
-    "target": "ESNext",
-    "jsx": "react",
-    "jsxFactory": "h",
-    "moduleResolution": "node",
-    "strict": true,
-    "skipLibCheck": true,
-    "esModuleInterop": true,
-    "module": "ESNext",
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "noEmit": false,
-    "incremental": true,
-    "composite": true,
     "declarationMap": true,
-    "types": []
+    "composite": true,
+    "noEmit": false,
+    "baseUrl": ".",
+    "paths": {}
   },
-  "include": ["./types/**/*", "./constants/**/*", "./utils/**/*"]
+  "include": [
+    "types/**/*.ts",
+    "constants/**/*.ts",
+    "utils/**/*.ts"
+  ],
+  "exclude": [
+    "dist",
+    "node_modules"
+  ]
 }

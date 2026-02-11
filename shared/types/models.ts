@@ -1,6 +1,11 @@
+/** ISO 8601 date string (e.g. "2024-01-15T09:30:00.000Z") */
+export type ISODateString = string;
+
 export interface User {
   id: number;
-  name: string;
   email: string;
-  createdAt: Date;
+  name: string;
+  role: string;
+  createdAt: ISODateString;
+  updatedAt: ISODateString;
 }

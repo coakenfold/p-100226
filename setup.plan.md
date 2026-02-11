@@ -56,34 +56,34 @@ This is a Node.js monorepo with a progressively enhanced multipage application a
 
 ### 2.1 Package Configuration
 
-- [ ] Create `shared/package.json`
+- [x] Create `shared/package.json`
   - Name: `@project/shared`
   - Type: module
   - Main/exports configuration
   - Add TypeScript as dependency
 
-- [ ] Create `shared/tsconfig.json`
+- [x] Create `shared/tsconfig.json`
   - Extend root config
   - Set up for library compilation
   - Configure declaration files
 
 ### 2.2 Directory Structure
 
-- [ ] Create `shared/types/` directory with initial type files:
+- [x] Create `shared/types/` directory with initial type files:
   - `shared/types/models.ts` — Domain entity types (User, etc.)
   - `shared/types/api.ts` — API request/response types
   - `shared/types/index.ts` — Re-export all types
 
-- [ ] Create `shared/constants/` directory:
+- [x] Create `shared/constants/` directory:
   - `shared/constants/index.ts` — Shared constants (HTTP status codes, user roles, etc.)
 
-- [ ] Create `shared/utils/` directory:
+- [x] Create `shared/utils/` directory:
   - `shared/utils/index.ts` — Pure utility functions (validation, formatting)
 
 ### 2.3 Build Configuration
 
-- [ ] Add build script to compile TypeScript to `dist/`
-- [ ] Configure TypeScript to generate type declarations
+- [x] Add build script to compile TypeScript to `dist/`
+- [x] Configure TypeScript to generate type declarations
 
 ---
 

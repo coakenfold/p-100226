@@ -37,8 +37,8 @@ Check for OWASP Top 10 issues:
 
 ### 3. Performance
 
-- Unnecessary re-renders in React components
-- Missing memoization for expensive computations
+- Render-blocking resources (JS without defer, large CSS)
+- Unoptimized images (missing width/height, wrong format)
 - N+1 query patterns in database code
 - Unbounded list operations
 

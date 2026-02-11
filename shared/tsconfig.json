@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "outDir": "dist",
+    "declaration": true,
+    "declarationDir": "dist",
+    "target": "ESNext",
+    "jsx": "react",
+    "jsxFactory": "h",
+    "moduleResolution": "node",
+    "strict": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "module": "ESNext",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": false,
+    "incremental": true,
+    "composite": true,
+    "declarationMap": true,
+    "types": []
+  },
+  "include": ["./types/**/*", "./constants/**/*", "./utils/**/*"]
+}

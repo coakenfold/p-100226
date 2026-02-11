@@ -4,6 +4,10 @@
 > principles. Subdirectory `CLAUDE.md` files add domain-specific context that
 > Claude discovers automatically by walking the directory tree.
 
+## Runtime
+
+- Node.js 24
+
 ## Architecture
 
 - Monorepo with `frontend/` (Nunjucks templates + TypeScript progressive enhancement) and `backend/` (Node.js + TypeScript)

@@ -11,7 +11,7 @@
 - Nunjucks as the view engine (templates live in `frontend/views/`)
 - PostgreSQL for persistence
 - JWT for authentication
-- Jest for testing
+- Vitest for testing
 
 ## Directory Structure
 

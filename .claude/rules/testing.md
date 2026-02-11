@@ -29,7 +29,7 @@ paths:
 - Arrange-Act-Assert structure for each test
 - Use factory functions for test data, not raw object literals
 - Mock at module boundaries, not internal functions
-- Prefer `jest.spyOn` over `jest.fn` when mocking existing methods
+- Prefer `vi.spyOn` over `vi.fn` when mocking existing methods
 
 ## E2E Testing (Playwright)
 

@@ -33,7 +33,7 @@ accessible, semantic HTML.
 1. Review the relevant templates, partials, and enhancers
 2. Check the frontend rules: `.claude/rules/frontend.md`
 3. Implement changes following established view/enhancer structure
-4. Write or update tests (Playwright for pages, Jest for utilities)
+4. Write or update tests (Playwright for pages, Vitest for utilities)
 5. Run `npm run lint` and `npm test -- frontend/` to validate
 
 ## Validation Checklist

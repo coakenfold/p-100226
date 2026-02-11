@@ -10,7 +10,7 @@
 - Vite for CSS and JavaScript asset bundling
 - Vanilla TypeScript for progressive enhancement scripts
 - Playwright for end-to-end testing
-- Jest for unit testing enhancers and utilities
+- Vitest for unit testing enhancers and utilities
 
 ## Philosophy
 

@@ -1,0 +1,18 @@
+# Build outputs
+dist/
+build/
+coverage/
+
+# Dependencies
+node_modules/
+package-lock.json
+
+# Generated files
+*.tsbuildinfo
+
+# Logs
+*.log
+
+# Test outputs
+playwright-report/
+test-results/

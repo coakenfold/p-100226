@@ -2,7 +2,8 @@
   "permissions": {
     "allow": [
       "WebFetch(domain:danielmeppiel.github.io)",
-      "Bash(ls:*)"
+      "Bash(ls:*)",
+      "Bash(npm run:*)"
     ]
   }
 }

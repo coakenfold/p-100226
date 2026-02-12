@@ -91,20 +91,20 @@ This is a Node.js monorepo with a progressively enhanced multipage application a
 
 ### 3.1 Package Configuration
 
-- [ ] Create `backend/package.json`
+- [x] Create `backend/package.json`
   - Name: `@project/backend`
   - Type: module
   - Add dependencies: Express, PostgreSQL client, JWT libraries, dotenv
   - Add dev dependencies: Vitest, TypeScript, type definitions
   - Link to shared package
 
-- [ ] Create `backend/tsconfig.json`
+- [x] Create `backend/tsconfig.json`
   - Extend root config
   - Configure for Node.js backend (CommonJS interop, module resolution)
 
 ### 3.2 Directory Structure
 
-- [ ] Create core backend directories:
+- [x] Create core backend directories:
   ```
   backend/
   ├── src/
@@ -132,7 +132,7 @@ This is a Node.js monorepo with a progressively enhanced multipage application a
 
 ### 3.3 Express Configuration
 
-- [ ] Create `backend/src/app.ts`:
+- [x] Create `backend/src/app.ts`:
   - Configure Express instance
   - Set up Nunjucks as view engine pointing to `frontend/views/`
   - Configure static file serving from `frontend/public/`
@@ -140,40 +140,40 @@ This is a Node.js monorepo with a progressively enhanced multipage application a
   - Register routes
   - Add error handling middleware
 
-- [ ] Create `backend/src/index.ts`:
+- [x] Create `backend/src/index.ts`:
   - Import app from `app.ts`
   - Start server on configured port
   - Handle graceful shutdown
 
 ### 3.4 Database Setup
 
-- [ ] Create database connection module `backend/src/db.ts`:
+- [x] Create database connection module `backend/src/db.ts`:
   - Configure PostgreSQL connection pool
   - Export query function with parameterized query support
 
-- [ ] Create initial migration file `backend/migrations/001_initial.sql`:
+- [x] Create initial migration file `backend/migrations/001_initial.sql`:
   - Users table schema
   - Any other core tables
 
-- [ ] Add migration script to `package.json`
+- [x] Add migration script to `package.json`
 
 ### 3.5 Authentication
 
-- [ ] Create `backend/src/middleware/auth.ts`:
+- [x] Create `backend/src/middleware/auth.ts`:
   - JWT token verification
   - User session management
   - Protected route middleware
 
-- [ ] Create authentication service `backend/src/services/auth.ts`:
+- [x] Create authentication service `backend/src/services/auth.ts`:
   - Login/logout logic
   - Token generation
   - Password hashing (bcrypt)
 
 ### 3.6 Testing Setup
 
-- [ ] Create `backend/vitest.config.ts`
-- [ ] Create sample test file `backend/tests/unit/example.test.ts`
-- [ ] Create sample integration test `backend/tests/integration/api.test.ts`
+- [x] Create `backend/vitest.config.ts`
+- [x] Create sample test file `backend/tests/unit/example.test.ts`
+- [x] Create sample integration test `backend/tests/integration/api.test.ts`
 
 ---
 

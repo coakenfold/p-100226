@@ -1,28 +1,45 @@
 import 'dotenv/config';
-import { createApp } from './app.js';
+import * as Sentry from '@sentry/node';
 import { config } from './config.js';
+import { logger } from './utils/logger.js';
+import { createApp } from './app.js';
 import { closePool } from './db.js';
+
+// Initialize Sentry before app creation
+if (config.sentry.dsn) {
+  Sentry.init({
+    dsn: config.sentry.dsn,
+    environment: config.env,
+  });
+  logger.info('Sentry initialized');
+}
 
 const app = createApp();
 
 const server = app.listen(config.port, config.host, () => {
-  console.log(
-    `Server running at http://${config.host}:${config.port} [${config.env}]`,
+  logger.info(
+    `Server running at http://${config.host}:${config.port} [${config.env}]`
   );
 });
 
 // Graceful shutdown
 function shutdown(signal: string): void {
-  console.log(`\n${signal} received — shutting down gracefully`);
-  server.close(async () => {
-    await closePool();
-    console.log('Server closed');
-    process.exit(0);
+  logger.info(`${signal} received — shutting down gracefully`);
+  server.close(() => {
+    closePool()
+      .then(() => {
+        logger.info('Server closed');
+        process.exit(0);
+      })
+      .catch((err: unknown) => {
+        logger.error({ err }, 'Error during shutdown');
+        process.exit(1);
+      });
   });
 
   // Force exit after 10 seconds
   setTimeout(() => {
-    console.error('Forced shutdown after timeout');
+    logger.error('Forced shutdown after timeout');
     process.exit(1);
   }, 10_000);
 }

@@ -1,0 +1,49 @@
+services:
+  db:
+    image: postgres:16
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-devuser}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-devpass}
+      POSTGRES_DB: ${POSTGRES_DB:-devdb}
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-devuser} -d ${POSTGRES_DB:-devdb}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  backend:
+    image: node:24
+    working_dir: /app
+    command: npx tsx watch backend/src/index.ts
+    depends_on:
+      db:
+        condition: service_healthy
+    ports:
+      - "3000:3000"
+    environment:
+      NODE_ENV: development
+      HOST: 0.0.0.0
+      PORT: 3000
+      DATABASE_URL: postgresql://${POSTGRES_USER:-devuser}:${POSTGRES_PASSWORD:-devpass}@db:5432/${POSTGRES_DB:-devdb}
+      JWT_SECRET: ${JWT_SECRET:-docker-dev-secret-change-in-production}
+      LOG_LEVEL: ${LOG_LEVEL:-debug}
+    volumes:
+      - ./backend/src:/app/backend/src
+      - ./frontend:/app/frontend
+      - ./shared:/app/shared
+      - ./package.json:/app/package.json
+      - ./tsconfig.json:/app/tsconfig.json
+      - ./backend/package.json:/app/backend/package.json
+      - ./backend/tsconfig.json:/app/backend/tsconfig.json
+      - ./shared/package.json:/app/shared/package.json
+      - ./shared/tsconfig.json:/app/shared/tsconfig.json
+      - node_modules:/app/node_modules
+
+volumes:
+  pgdata:
+  node_modules:

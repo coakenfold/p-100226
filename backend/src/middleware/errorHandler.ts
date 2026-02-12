@@ -1,11 +1,13 @@
 import type { Request, Response, NextFunction } from 'express';
+import * as Sentry from '@sentry/node';
 import { HTTP_STATUS } from '@project/shared/constants';
 import type { ApiErrorResponse } from '@project/shared/types';
+import { logger } from '../utils/logger.js';
 
 export class AppError extends Error {
   constructor(
     public statusCode: number,
-    message: string,
+    message: string
   ) {
     super(message);
     this.name = 'AppError';
@@ -34,7 +36,7 @@ export function errorHandler(
   err: Error,
   _req: Request,
   res: Response,
-  _next: NextFunction,
+  _next: NextFunction
 ): void {
   const statusCode =
     err instanceof AppError
@@ -44,19 +46,26 @@ export function errorHandler(
   const message =
     err instanceof AppError ? err.message : 'Internal Server Error';
 
-  console.error(`[Error] ${statusCode} - ${err.message}`, {
-    stack: err.stack,
+  logger.error({
+    err,
+    statusCode,
     path: _req.path,
     method: _req.method,
   });
+
+  // Capture unexpected errors in Sentry
+  if (statusCode >= HTTP_STATUS.INTERNAL_SERVER_ERROR) {
+    Sentry.captureException(err);
+  }
 
   const isApiRequest = _req.path.startsWith('/api/');
 
   if (isApiRequest) {
     const body: ApiErrorResponse = {
-      error: statusCode === HTTP_STATUS.INTERNAL_SERVER_ERROR
-        ? 'Internal Server Error'
-        : err.name,
+      error:
+        statusCode === HTTP_STATUS.INTERNAL_SERVER_ERROR
+          ? 'Internal Server Error'
+          : err.name,
       message,
       statusCode,
     };

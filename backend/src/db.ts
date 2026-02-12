@@ -1,5 +1,6 @@
 import pg from 'pg';
 import { config } from './config.js';
+import { logger } from './utils/logger.js';
 
 const { Pool } = pg;
 
@@ -10,7 +11,7 @@ const pool = new Pool({
 });
 
 pool.on('error', (err) => {
-  console.error('Unexpected database pool error:', err);
+  logger.error({ err }, 'Unexpected database pool error');
 });
 
 export interface QueryResult<T = Record<string, unknown>> {
@@ -20,7 +21,7 @@ export interface QueryResult<T = Record<string, unknown>> {
 
 export async function query<T = Record<string, unknown>>(
   text: string,
-  params?: unknown[],
+  params?: unknown[]
 ): Promise<QueryResult<T>> {
   const result = await pool.query(text, params);
   return { rows: result.rows as T[], rowCount: result.rowCount };

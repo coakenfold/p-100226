@@ -1,6 +1,7 @@
 import { Router, Request, Response } from 'express';
 import { readdirSync, statSync } from 'fs';
 import { join, relative, parse } from 'path';
+import { logger } from './logger.js';
 
 export interface PageRoute {
   path: string;
@@ -131,7 +132,7 @@ export function createFileSystemRouter(options: RouteOptions): Router {
       });
     });
 
-    console.log(
+    logger.info(
       `[FS Router] Registered: ${route.path.padEnd(30)} → ${templatePath}`
     );
   }

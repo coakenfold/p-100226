@@ -1,0 +1,14 @@
+node_modules/
+dist/
+build/
+.git/
+.env
+.env.local
+.env.*.local
+*.log
+coverage/
+playwright-report/
+test-results/
+.DS_Store
+*.tsbuildinfo
+.eslintcache

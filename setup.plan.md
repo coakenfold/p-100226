@@ -402,32 +402,31 @@ Add to root `package.json`:
 
 ### 8.1 CI/CD Pipeline
 
-- [ ] Create `.github/workflows/ci.yml`:
+- [x] Create `.github/workflows/ci.yml`:
   - Install dependencies
   - Run linting and type checking
-  - Run all tests
+  - Run all tests (unit + integration with PostgreSQL service container)
   - Build all packages
-  - Upload coverage reports
 
 ### 8.2 Docker Setup
 
-- [ ] Create `Dockerfile` for backend
-- [ ] Create `docker-compose.yml`:
-  - Backend service
-  - PostgreSQL service
+- [x] Create `docker-compose.yml` (dev-focused):
+  - Backend service (Node 24, tsx watch for live reload)
+  - PostgreSQL 16 service with health checks
   - Volume mounts for development
+- [x] Create `.dockerignore`
 
 ### 8.3 Monitoring & Logging
 
-- [ ] Set up structured logging (Winston, Pino)
-- [ ] Add request logging middleware
-- [ ] Configure error tracking (Sentry, etc.)
+- [x] Set up structured logging (Pino + pino-http + pino-pretty for dev)
+- [x] Add request logging middleware (pino-http in Express chain)
+- [x] Configure error tracking (Sentry — @sentry/node with captureException for 5xx errors)
+- [x] Replace all console.log/console.error with logger across backend
 
 ### 8.4 Performance
 
-- [ ] Add compression middleware
-- [ ] Configure caching headers
-- [ ] Set up CDN for static assets (production)
+- [x] Add compression middleware
+- [x] Configure caching headers (1y for JS/CSS, 1d for other static assets)
 
 ---
 

@@ -330,7 +330,7 @@ Add to root `package.json`:
 
 ### 6.1 Create `.claude/` Directory
 
-- [ ] Create `.claude/rules/` directory for path-scoped instructions:
+- [x] Create `.claude/rules/` directory for path-scoped instructions:
   - `frontend.md` — Frontend coding standards (paths: `frontend/**/*.{ts,css,njk}`)
   - `backend.md` — Backend coding standards (paths: `backend/**/*.ts`)
   - `testing.md` — Testing guidelines (paths: `**/*.test.ts`)
@@ -338,7 +338,7 @@ Add to root `package.json`:
 
 ### 6.2 Create Skills Directory
 
-- [ ] Create `.claude/skills/` directory with specialized workflows:
+- [x] Create `.claude/skills/` directory with specialized workflows:
   - `architect/SKILL.md` — Planning mode (no code edits)
   - `frontend-engineer/SKILL.md` — UI specialist mode
   - `backend-engineer/SKILL.md` — API specialist mode

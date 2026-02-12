@@ -50,7 +50,7 @@ sequenceDiagram
     S->>BC: bcrypt.hash(password, 12)
     BC-->>S: password_hash
 
-    S->>DB: INSERT INTO users (email, name, password_hash, role)<br/>VALUES ($1, $2, $3, 'user')<br/>RETURNING id, email, name, role, created_at
+    S->>DB: INSERT INTO users (email, name, password_hash, role) RETURNING id, email, name, role, created_at
     DB-->>S: New user row
 
     S->>S: Map created_at → createdAt

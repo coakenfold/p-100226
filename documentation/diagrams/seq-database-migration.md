@@ -12,7 +12,7 @@ sequenceDiagram
 
     CLI->>M: Execute migrate.ts
 
-    M->>DB: CREATE TABLE IF NOT EXISTS migrations<br/>(id SERIAL, name TEXT UNIQUE, applied_at TIMESTAMPTZ DEFAULT NOW())
+    M->>DB: CREATE TABLE IF NOT EXISTS migrations (id, name, applied_at)
     DB-->>M: Table ready
 
     M->>DB: SELECT name FROM migrations ORDER BY id

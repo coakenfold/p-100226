@@ -25,7 +25,7 @@ sequenceDiagram
     V->>V: errors.length > 0
 
     deactivate V
-    V-->>C: 422 { error: "Validation Error",<br/>message: "email is required; password is required",<br/>statusCode: 422 }
+    V-->>C: 422 Validation Error — "email is required; password is required"
 ```
 
 ## Not Found — API Route (404 JSON)
@@ -46,7 +46,7 @@ sequenceDiagram
 
     NF->>NF: Detect path starts with "/api/"
 
-    NF-->>C: 404 { error: "Not Found",<br/>message: "Route GET /api/v1/nonexistent not found",<br/>statusCode: 404 }
+    NF-->>C: 404 Not Found — "Route GET /api/v1/nonexistent not found"
 ```
 
 ## Not Found — Page Route (404 HTML)

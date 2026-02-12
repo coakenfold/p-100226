@@ -45,7 +45,7 @@ sequenceDiagram
     R->>S: getUserById(req.user.id)
     activate S
 
-    S->>DB: SELECT id, email, name, role, created_at<br/>FROM users WHERE id = $1
+    S->>DB: SELECT id, email, name, role, created_at FROM users WHERE id = $1
     DB-->>S: Result row
 
     alt User not found (deleted after token issued)

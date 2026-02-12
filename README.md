@@ -12,6 +12,8 @@ A progressively enhanced multipage application built with Node.js, TypeScript, E
 - [Deployment](#deployment)
 - [API Documentation](#api-documentation)
 - [Architecture Overview](#architecture-overview)
+- [Infrastructure](#infrastructure)
+- [Architecture Diagrams](#architecture-diagrams)
 
 ## Architecture
 
@@ -489,27 +491,51 @@ The `shared/` package ensures type safety across the full stack:
 
 This creates a **single source of truth** — changing a type in `shared/` causes type errors in both frontend and backend, catching integration bugs at compile time.
 
-## Progressive Enhancement
+## Infrastructure
 
-This application follows progressive enhancement principles:
+### Docker
 
-- Every page works fully without JavaScript
-- JavaScript enhances existing server-rendered markup
-- Forms submit natively with server-side validation
-- Navigation uses standard links and full page loads
+A development-focused Docker Compose setup is provided:
 
-## Code Style
+```bash
+# Start PostgreSQL + backend with live reload
+docker compose up
 
-- Use ES modules (`import`/`export`), never CommonJS (`require`)
-- Prefer named exports over default exports
-- Use 2-space indentation
-- Strict TypeScript — no `any` types (use `unknown` with type guards)
+# Stop services
+docker compose down
+```
 
-## Git Workflow
+Services:
 
-- Branch naming: `feat/*`, `fix/*`, `docs/*`
-- Write concise commit messages focusing on "why" not "what"
-- Run `npm run lint && npm test` before committing
+- **PostgreSQL 16** — database with health checks and persistent volume
+- **Node.js 24 backend** — tsx watch for live reload, auto-connects to database
+
+### CI/CD
+
+GitHub Actions workflow (`.github/workflows/ci.yml`) runs on push and PR to `main`:
+
+1. Type checking
+2. Linting
+3. Build (all packages)
+4. Unit tests
+5. Integration tests (with PostgreSQL service container)
+
+### Monitoring & Logging
+
+- **Structured logging**: [Pino](https://getpino.io/) with `pino-pretty` for development
+- **Request logging**: `pino-http` middleware on all requests
+- **Error tracking**: [Sentry](https://sentry.io/) integration (`SENTRY_DSN` env var)
+- **Compression**: `compression` middleware for all responses
+- **Cache headers**: 1 year for JS/CSS assets, 1 day for other static files
+
+## Architecture Diagrams
+
+See [documentation/diagrams/](documentation/diagrams/) for C4 model architecture diagrams:
+
+- **System Context** — how users interact with the system and external services
+- **Container** — high-level technical building blocks
+- **Backend Components** — internal structure of the Express server
+- **Frontend Components** — templates, assets, and enhancement pipeline
 
 ## License
 

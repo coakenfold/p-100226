@@ -280,24 +280,24 @@ This is a Node.js monorepo with a progressively enhanced multipage application a
 
 ### 5.1 Linting & Formatting
 
-- [ ] Create `.eslintrc.json` or `eslint.config.js`:
+- [x] Create `.eslintrc.json` or `eslint.config.js`:
   - TypeScript parser
   - Recommended rules
   - Import resolution for path aliases
 
-- [ ] Create `.prettierrc`:
+- [x] Create `.prettierrc`:
   - 2-space indentation
   - Single quotes
   - Trailing commas
 
-- [ ] Create `.prettierignore`:
+- [x] Create `.prettierignore`:
   - Ignore dist/, coverage/, etc.
 
 ### 5.2 Git Hooks (optional)
 
-- [ ] Install husky for git hooks
-- [ ] Create pre-commit hook to run linting and type checking
-- [ ] Create pre-push hook to run tests
+- [x] Install husky for git hooks
+- [x] Create pre-commit hook to run linting and type checking
+- [x] Create pre-push hook to run tests
 
 ### 5.3 Scripts Organization
 

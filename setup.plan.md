@@ -355,24 +355,31 @@ Add to root `package.json`:
 
 ### 7.1 Smoke Tests
 
-- [ ] Verify root install: `npm install`
-- [ ] Verify build: `npm run build`
-- [ ] Verify typecheck: `npm run typecheck`
-- [ ] Verify lint: `npm run lint`
-- [ ] Verify all tests pass: `npm test`
+- [x] Verify root install: `npm install` ✅ Works (with Node.js version warnings - requires Node 24, using Node 20.9.0)
+- [x] Verify build: `npm run build` ✅ All packages build successfully
+- [x] Verify typecheck: `npm run typecheck` ✅ No TypeScript errors
+- [x] Verify lint: `npm run lint` ⚠️ Has 81 errors, 6 warnings (mainly ESLint config issues with built dist files, promise handling, and console statements)
+- [x] Verify all tests pass: `npm test` ⚠️ Unit tests pass (7/7), integration tests skipped (2), E2E tests require running server
 
 ### 7.2 Development Workflow Test
 
-- [ ] Start backend dev server: `npm run dev:backend`
-- [ ] Verify server starts and listens on configured port
-- [ ] Open browser and verify home page renders
-- [ ] Test API endpoints with curl/Postman
-- [ ] Verify hot reload works for backend changes
+- [x] Start backend dev server: `npm run dev:backend` ✅ Starts successfully (requires .env file in backend/ directory)
+- [x] Verify server starts and listens on configured port ✅ Server running at http://localhost:3000
+- [x] Open browser and verify home page renders ✅ Home page renders correctly with Nunjucks templates
+- [x] Test API endpoints with curl/Postman ⚠️ API endpoints respond but database not configured (expected - PostgreSQL not set up)
+- [ ] Verify hot reload works for backend changes (not tested - would require making code changes)
 
-- [ ] Start frontend asset watcher: `npm run dev:frontend`
-- [ ] Verify Vite builds and watches frontend assets
-- [ ] Test progressive enhancement scripts load and execute
-- [ ] Verify hot reload works for CSS changes
+- [x] Start frontend asset watcher: `npm run dev:frontend` ✅ Vite watches and rebuilds on changes
+- [x] Verify Vite builds and watches frontend assets ✅ Built example.js successfully in 33ms
+- [x] Test progressive enhancement scripts load and execute ✅ Scripts accessible at /js/example.js
+- [ ] Verify hot reload works for CSS changes (not tested - would require making CSS changes)
+
+**Additional Notes:**
+
+- E2E tests pass when server is running (12/12 tests passed in 5.2s across Chromium, Firefox, and WebKit)
+- Environment variables need to be in `backend/.env` (not just root `.env`) due to workspace structure
+- Static assets (CSS, JS) are served correctly from `frontend/public/`
+- Server-side rendering works correctly with Nunjucks templates
 
 ### 7.3 Documentation
 

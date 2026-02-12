@@ -383,7 +383,7 @@ Add to root `package.json`:
 
 ### 7.3 Documentation
 
-- [ ] Create/update `README.md`:
+- [x] Create/update `README.md`:
   - Project overview
   - Prerequisites
   - Installation steps
@@ -392,9 +392,9 @@ Add to root `package.json`:
   - Deployment guidelines
   - Architecture overview
 
-- [ ] Document environment variables in `.env.example`
-- [ ] Document API endpoints (consider OpenAPI/Swagger)
-- [ ] Add inline code comments for complex logic
+- [x] Document environment variables in `.env.example`
+- [x] Document API endpoints (created comprehensive API.md)
+- [ ] Add inline code comments for complex logic (ongoing - can be added as needed)
 
 ---
 

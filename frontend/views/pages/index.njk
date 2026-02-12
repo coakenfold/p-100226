@@ -1,0 +1,27 @@
+{% extends "layouts/base.njk" %}
+
+{% block title %}Home{% endblock %}
+{% block description %}Welcome to the application{% endblock %}
+
+{% block content %}
+<section class="hero">
+  <h1>Welcome{% if user %}, {{ user.name }}{% endif %}</h1>
+  <p>This is a progressively enhanced multipage application.</p>
+</section>
+
+<section class="features" data-enhance="example">
+  <h2>Features</h2>
+  <ul>
+    <li>Server-rendered HTML — works without JavaScript</li>
+    <li>Progressive enhancement — JavaScript adds interactivity</li>
+    <li>Accessible by default</li>
+  </ul>
+  <noscript>
+    <p>JavaScript is not required, but it enhances the experience.</p>
+  </noscript>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script type="module" src="/js/example.js" defer></script>
+{% endblock %}

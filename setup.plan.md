@@ -181,21 +181,21 @@ This is a Node.js monorepo with a progressively enhanced multipage application a
 
 ### 4.1 Package Configuration
 
-- [ ] Create `frontend/package.json`
+- [x] Create `frontend/package.json`
   - Name: `@project/frontend`
   - Type: module
   - Add dependencies: Nunjucks (for type definitions)
   - Add dev dependencies: Vite, TypeScript, PostCSS, Playwright, Vitest
   - Link to shared package
 
-- [ ] Create `frontend/tsconfig.json`
+- [x] Create `frontend/tsconfig.json`
   - Extend root config
   - Configure for browser environment
   - Enable DOM types
 
 ### 4.2 Directory Structure
 
-- [ ] Create frontend directories:
+- [x] Create frontend directories:
   ```
   frontend/
   ├── views/
@@ -224,7 +224,7 @@ This is a Node.js monorepo with a progressively enhanced multipage application a
 
 ### 4.3 Vite Configuration
 
-- [ ] Create `frontend/vite.config.ts`:
+- [x] Create `frontend/vite.config.ts`:
   - Configure build for multiple entry points (enhancer scripts)
   - Set output directory to `public/js/`
   - Configure CSS processing
@@ -232,24 +232,24 @@ This is a Node.js monorepo with a progressively enhanced multipage application a
 
 ### 4.4 Template Setup
 
-- [ ] Create base layout `frontend/views/layouts/base.njk`:
+- [x] Create base layout `frontend/views/layouts/base.njk`:
   - HTML boilerplate with semantic HTML5
   - Meta tags (viewport, charset, description)
   - CSS link tags
   - Script tags for progressive enhancement (deferred)
   - Content blocks for page-specific content
 
-- [ ] Create home page template `frontend/views/pages/index.njk`:
+- [x] Create home page template `frontend/views/pages/index.njk`:
   - Extend base layout
   - Sample content demonstrating data binding
 
-- [ ] Create shared partials:
+- [x] Create shared partials:
   - Header with navigation
   - Footer
 
 ### 4.5 Styles Setup
 
-- [ ] Create `frontend/public/css/main.css`:
+- [x] Create `frontend/public/css/main.css`:
   - CSS reset/normalize
   - CSS custom properties (design tokens)
   - Base typography
@@ -259,20 +259,20 @@ This is a Node.js monorepo with a progressively enhanced multipage application a
 
 ### 4.6 Progressive Enhancement Setup
 
-- [ ] Create sample enhancer `frontend/src/enhancers/example.ts`:
+- [x] Create sample enhancer `frontend/src/enhancers/example.ts`:
   - Demonstrates `data-enhance` pattern
   - Shows how to enhance server-rendered markup
   - Includes event listeners and DOM manipulation
 
 ### 4.7 Testing Setup
 
-- [ ] Create `frontend/vitest.config.ts`
-- [ ] Create `frontend/playwright.config.ts`:
+- [x] Create `frontend/vitest.config.ts`
+- [x] Create `frontend/playwright.config.ts`:
   - Configure base URL
   - Set up test browsers
   - Configure test directory
 
-- [ ] Create sample E2E test `frontend/tests/e2e/home.spec.ts`
+- [x] Create sample E2E test `frontend/tests/e2e/home.spec.ts`
 
 ---
 

@@ -1,9 +1,13 @@
-import { Router } from 'express';
+import { join, dirname } from 'path';
+import { fileURLToPath } from 'url';
+import { createFileSystemRouter } from '../utils/fsRouter.js';
 
-export const pageRoutes = Router();
+// Get project root (two levels up from backend/src/)
+const __dirname = dirname(fileURLToPath(import.meta.url));
+const projectRoot = join(__dirname, '..', '..');
 
-pageRoutes.get('/', (_req, res) => {
-  res.render('pages/index.njk', {
-    title: 'Home',
-  });
+// Auto-generate routes from frontend/views/pages/
+export const pageRoutes = createFileSystemRouter({
+  pagesDir: join(projectRoot, '..', 'frontend', 'views', 'pages'),
+  templatePrefix: 'pages/',
 });

@@ -7,7 +7,7 @@ services:
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-devpass}
       POSTGRES_DB: ${POSTGRES_DB:-devdb}
     ports:
-      - "5432:5432"
+      - "5433:5432"
     volumes:
       - pgdata:/var/lib/postgresql/data
     healthcheck:
@@ -19,7 +19,7 @@ services:
   backend:
     image: node:24
     working_dir: /app
-    command: npx tsx watch backend/src/index.ts
+    command: sh -c "npm install && npx tsx watch backend/src/index.ts"
     depends_on:
       db:
         condition: service_healthy
@@ -33,15 +33,7 @@ services:
       JWT_SECRET: ${JWT_SECRET:-docker-dev-secret-change-in-production}
       LOG_LEVEL: ${LOG_LEVEL:-debug}
     volumes:
-      - ./backend/src:/app/backend/src
-      - ./frontend:/app/frontend
-      - ./shared:/app/shared
-      - ./package.json:/app/package.json
-      - ./tsconfig.json:/app/tsconfig.json
-      - ./backend/package.json:/app/backend/package.json
-      - ./backend/tsconfig.json:/app/backend/tsconfig.json
-      - ./shared/package.json:/app/shared/package.json
-      - ./shared/tsconfig.json:/app/shared/tsconfig.json
+      - .:/app
       - node_modules:/app/node_modules
 
 volumes:

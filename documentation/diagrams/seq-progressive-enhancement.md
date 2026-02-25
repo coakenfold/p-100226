@@ -22,7 +22,7 @@ sequenceDiagram
     B->>E: GET /
     E-->>B: 200 OK — HTML (fully functional without JS)
 
-    Note over B: HTML includes:<br/>• Server-rendered content<br/>• Elements with data-enhance="example"<br/>• &lt;script src="/js/example.js" type="module" defer&gt;
+    Note over B: HTML has server-rendered content, data-enhance elements, and a deferred ES module script
 
     B->>B: Parse HTML → render page
     Note over U,B: Page is usable immediately (no JS required)

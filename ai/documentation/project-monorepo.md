@@ -772,7 +772,7 @@ The TDD agent workflow decomposes test-driven development into four specialized 
 
 Each agent has an explicit boundary (`CAN` / `CANNOT` list) that prevents scope creep and keeps each phase focused.
 
-The PROSE reference guide is at `/Users/chadoakenfold/Documents/Code/p-100226/ai/docs/prose.md`.
+The PROSE reference guide is at `ai/docs/prose.md`.
 
 ---
 

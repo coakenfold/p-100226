@@ -726,28 +726,36 @@ This project uses the PROSE framework for AI-assisted development. PROSE defines
 The `.claude/` directory contains all AI tooling.
 
 ```
+project-100226/
+├── CLAUDE.md                   # Root project instructions
+├── frontend/
+│   └── CLAUDE.md               # Frontend-specific context
+├── backend/
+│   └── CLAUDE.md               # Backend-specific context
+├── shared/
+│   └── CLAUDE.md               # Shared types context
 .claude/
-├── agents/           # Custom agent definitions
+├── agents/                     # Custom agent definitions
 │   ├── tdd-orchestrator.md
 │   ├── tdd-test-writer.md
 │   ├── tdd-implementer.md
 │   ├── tdd-refactorer.md
 │   └── feature-documentater.md
-├── rules/            # Path-scoped coding rules
-│   ├── backend.md    # Applies when editing backend/ files
-│   ├── frontend.md   # Applies when editing frontend/ files
-│   ├── security.md   # Applies to auth and data handling
-│   └── testing.md    # Applies when editing test files
-└── skills/           # Reusable skill definitions
-    ├── architect/
-    ├── backend-engineer/
-    ├── code-review/
-    ├── debug/
-    ├── frontend-engineer/
-    ├── implement-feature/
-    ├── perf/
-    ├── spec/
-    └── technical-writer/
+├── rules/                      # Path-scoped coding rules
+│   ├── backend.md              # Applies when editing backend/ files
+│   ├── frontend.md             # Applies when editing frontend/ files
+│   ├── security.md             # Applies to auth and data handling
+│   └── testing.md              # Applies when editing test files
+└── skills/                     # Reusable skill definitions
+    ├── architect/              # /architect — planning only, no edits
+    ├── backend-engineer/       # /backend-engineer — API specialist
+    ├── code-review/            # /code-review — review workflow
+    ├── debug/                  # /debug — systematic debugging
+    ├── frontend-engineer/      # /frontend-engineer — UI specialist
+    ├── implement-feature/      # /implement-feature — spec-to-code
+    ├── perf/                   # /perf — page load performance
+    ├── spec/                   # /spec — generate spec templates
+    └── technical-writer/       # /technical-writer — docs only
 ```
 
 ### Hierarchical Instructions

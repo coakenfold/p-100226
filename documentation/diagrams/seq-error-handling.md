@@ -25,7 +25,7 @@ sequenceDiagram
     V->>V: errors.length > 0
 
     deactivate V
-    V-->>C: 422 Validation Error — "email is required; password is required"
+    V-->>C: 422 Validation Error -- email is required. password is required
 ```
 
 ## Not Found — API Route (404 JSON)

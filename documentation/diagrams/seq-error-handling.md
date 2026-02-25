@@ -18,9 +18,9 @@ sequenceDiagram
     activate V
 
     V->>V: Check email — required → empty string fails
-    V->>V: Accumulate error: "email is required"
+    V->>V: Accumulate error: email is required
     V->>V: Check password — required → undefined fails
-    V->>V: Accumulate error: "password is required"
+    V->>V: Accumulate error: password is required
 
     V->>V: errors.length > 0
 
